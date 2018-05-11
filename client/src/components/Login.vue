@@ -4,7 +4,7 @@
       <v-card>
         <v-card-title primary-title>
           <div >
-            <h3 class="headline mb-0">Register</h3>
+            <h3 class="headline mb-0">Login</h3>
           </div>
         </v-card-title>
           <Form :label-width="80" class="mr-5">
@@ -15,7 +15,7 @@
                 <Input type="password" v-model="password" />
               </FormItem>
               <FormItem>
-                <Button type="primary" @click="register">Submit</Button>
+                <Button type="primary" @click="login">Submit</Button>
                 <Button type="ghost" style="margin-left: 8px" @click="reset">Reset</Button>
               </FormItem>
             </Form>
@@ -37,17 +37,18 @@ export default {
     }
   },
   methods: {
-    async register () {
-      const response = await AuthenticationService.register({
+    async login () {
+      const response = await AuthenticationService.login({
         email: this.email,
         password: this.password
       })
       console.log(response.data)
     },
-    reset () {
-      this.email = '',
-      this.password = ''
-    }
+     reset () {
+    this.email = '',
+    this.password = ''
   }
+  }
+ 
 }
 </script>

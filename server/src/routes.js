@@ -8,5 +8,8 @@ module.exports = (app) => {
           });
         res.send('Email registered ' + req.body.email)
         console.log('Email registered ' + req.body.email)
+    }),
+    app.post('/login', (req,res) => {
+        res.send('Email logged in ' + req.body.email)
     })   
 }
