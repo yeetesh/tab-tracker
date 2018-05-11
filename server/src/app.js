@@ -21,4 +21,4 @@ mongoose.connect('mongodb://localhost/tab-tracker')
 
 
 
-//20 mins almost, setup a user database using vidjot
+//part 3, 30 mins up. Implement login in client and server side, watch further for tokens
