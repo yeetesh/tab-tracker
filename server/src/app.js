@@ -1,23 +1,24 @@
-console.log('Working');
-
 const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const morgan = require('morgan')
-
+const mongoose = require('mongoose')
+const routes = require('./routes')
 const app = express()
 
 app.use(morgan('combined'))
 app.use(bodyParser.json())
 app.use(cors())
+routes(app)
 
 
-app.get('/', (req,res) => {
-    res.send('Working boys')
-})
+mongoose.connect('mongodb://localhost/tab-tracker')
+    .then(() => {
+        console.log('MongoDB Connected and server started')
+        app.listen(8081)
+    })
+    .catch(err => console.log(err)) 
 
-app.post('/register', (req,res) => {
-    res.send('Email registered ' + req.body.email)
-    console.log('Email registered ' + req.body.email)
-})
-app.listen(8081)
+
+
+//20 mins almost, setup a user database using vidjot
