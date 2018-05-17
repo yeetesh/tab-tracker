@@ -1,9 +1,15 @@
 const User = require('../models/User')
+const jwt = require('jsonwebtoken')
+
+function signUser(user) {
+    return jwt.sign(user.toJSON(), 'secret')
+}
 
 module.exports = {
-    register(req,res) {
+    register(req,res) { 
         User.create( { email : req.body.email,password : req.body.password }, function (err, doc) {
             if (err) {
+                console.log(err)
                 res.send('Could not register')
             }
             else {
@@ -20,11 +26,12 @@ module.exports = {
                 if(user.password === req.body.password)
                 {   
                     console.log(user.password,req.body.password)
-                    res.send('Logged in')
+                    var token = signUser(user)
+                    res.send({ user : user, token : token})   
                 }
                 else 
                     res.send('Invalid credentials')
             }
-          }); 
+          })
     }
 }

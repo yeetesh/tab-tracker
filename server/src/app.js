@@ -21,4 +21,4 @@ mongoose.connect('mongodb://localhost/tab-tracker')
 
 
 
-//part 3, 30 mins up. Implement login in client and server side, watch further for tokens
+//part 3, 37 mins up. Implement login in client and server side, add bycript and compare prototype to user
