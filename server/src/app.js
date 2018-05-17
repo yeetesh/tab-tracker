@@ -21,4 +21,4 @@ mongoose.connect('mongodb://localhost/tab-tracker')
 
 
 
-//part 3, 37 mins up. Implement login in client and server side, add bycript and compare prototype to user
+//part 3, 50 mins up. Implement vuex in client

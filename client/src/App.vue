@@ -1,5 +1,15 @@
 <template>
   <v-app>
+    <v-toolbar>
+      <!--<v-toolbar-side-icon></v-toolbar-side-icon>-->
+      <v-toolbar-title><router-link to="/" tag="span" style="cursor: pointer">Tab-Tracker</router-link></v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-toolbar-items class="hidden-sm-and-down">
+        <v-btn flat router to="/register" v-if="!$store.state.isUserLoggedIn">Register</v-btn>
+        <v-btn flat router to="/login" v-if="!$store.state.isUserLoggedIn">Login</v-btn>
+        <v-btn flat router to="/login" v-if="$store.state.isUserLoggedIn">Logout</v-btn>
+      </v-toolbar-items>
+    </v-toolbar>
     <v-content>
       <v-container fluid>
         <router-view></router-view>
@@ -10,6 +20,6 @@
 
 <script>
 export default {
-  name: 'App'
+  
 }
 </script>

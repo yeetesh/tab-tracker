@@ -23,7 +23,8 @@ module.exports = {
                 res.send('Could not register')
             }
             else {
-                res.send('Registered')
+                var token = signUser(doc)
+                res.send({user : req.body.email, token : token})
             }
         });
     },
