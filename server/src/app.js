@@ -6,7 +6,7 @@ const mongoose = require('mongoose')
 const routes = require('./routes')
 const app = express()
 
-app.use(morgan('combined'))
+//app.use(morgan('combined'))
 app.use(bodyParser.json())
 app.use(cors())
 routes(app)
