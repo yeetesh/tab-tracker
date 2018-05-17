@@ -1,13 +1,23 @@
 const User = require('../models/User')
 const jwt = require('jsonwebtoken')
+const bcrypt = require('bcrypt-nodejs')
 
 function signUser(user) {
     return jwt.sign(user.toJSON(), 'secret')
 }
 
+function hash(password) {
+    return bcrypt.hashSync(password)
+}
+
+function comparePassword(password,hash) {
+    return bcrypt.compareSync(password, hash)
+}
+
 module.exports = {
     register(req,res) { 
-        User.create( { email : req.body.email,password : req.body.password }, function (err, doc) {
+        var password = hash(req.body.password)
+        User.create( { email : req.body.email,password : password }, function (err, doc) {
             if (err) {
                 console.log(err)
                 res.send('Could not register')
@@ -23,9 +33,8 @@ module.exports = {
                 res.send('Could not find user')
             else 
             {
-                if(user.password === req.body.password)
+                if(comparePassword(req.body.password,user.password))
                 {   
-                    console.log(user.password,req.body.password)
                     var token = signUser(user)
                     res.send({ user : user, token : token})   
                 }
