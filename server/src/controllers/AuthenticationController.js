@@ -19,14 +19,13 @@ module.exports = {
         var password = hash(req.body.password)
         User.create( { email : req.body.email,password : password }, function (err, doc) {
             if (err) {
-                console.log(err)
                 res.send('Could not register')
             }
             else {
                 var token = signUser(doc)
                 res.send({user : req.body.email, token : token})
             }
-        });
+        })
     },
     login(req,res) {
         User.findOne({ email : req.body.email }, function (err, user) {
