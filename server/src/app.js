@@ -21,4 +21,4 @@ mongoose.connect('mongodb://localhost/tab-tracker')
 
 
 
-//part 3, 50 mins up. Implement vuex in client
+//part 4, 36 mins up. Implement ui for displaying songs

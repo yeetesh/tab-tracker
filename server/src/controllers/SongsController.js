@@ -14,7 +14,6 @@ module.exports = {
         })
     },
     getSongs(req,res) { 
-        console.log('Fucntion called')
         Song.find({}, function (err, songs) {
             if (songs === null || songs.length === 0) 
                 res.send('Could not find songs')
