@@ -6,6 +6,7 @@
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-sm-and-down">
         <v-btn flat router to="/songs">Songs</v-btn>
+        <v-btn flat router to="/create">Create</v-btn>
         <v-btn flat router to="/register" v-if="!$store.state.isUserLoggedIn">Register</v-btn>
         <v-btn flat router to="/login" v-if="!$store.state.isUserLoggedIn">Login</v-btn>
         <v-btn flat v-if="$store.state.isUserLoggedIn" @click="logout">Logout</v-btn>
