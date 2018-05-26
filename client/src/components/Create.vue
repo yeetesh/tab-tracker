@@ -23,7 +23,7 @@
                     <FormItem label="Image">
                         <Input type="text" v-model="image" />
                     </FormItem>
-                    <FormItem label="YoutubeID">
+                    <FormItem label="YoutubeID" style="padding-bottom:30px">
                         <Input type="text" v-model="youtubeId" />
                     </FormItem>
                 </Form>
@@ -44,7 +44,7 @@
                         <Input type="textarea" v-model="lyrics" />
                     </FormItem>
                     <FormItem style="padding-bottom:10px">
-                        <Button type="primary" @click="create">Submit</Button>
+                        <Button type="primary" @click="create">Create</Button>
                     </FormItem>
                 </Form>
             </v-card>

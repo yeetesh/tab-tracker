@@ -22,5 +22,14 @@ module.exports = {
                     res.send(songs)       
             }
           })
+    },
+    getSong(req,res) {
+        Song.findById(req.params.id, (err,song) => {
+            if(err) {
+                console.log('Song by id not found')
+                res.send('Song by id not found')
+            }
+            res.send(song)
+        })
     }
 }

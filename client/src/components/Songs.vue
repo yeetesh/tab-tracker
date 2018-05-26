@@ -2,16 +2,16 @@
   <v-layout>
     <v-flex sm4 v-for="song in songs" :key="song.id" class="mx-2">
       <v-card>
-        <v-card-media  src="https://geekandsundry.com/wp-content/uploads/2016/08/ironman-cover.jpg" height="200px">
+        <v-card-media  :src="song.image" height="200px">
         </v-card-media>
         <v-card-title primary-title>
           <div>
-            <h3 class="headline mb-0">{{ song.title }}</h3>
-            <div>Located two hours south of Sydney in the <br>Southern Highlands of New South Wales, ...</div>
+            <h3 class="headline mb-0 ">{{ song.title }}</h3>
+            <div>{{ song.artist }}<br>{{ song.album }}</div>
           </div>
         </v-card-title>
         <v-card-actions>
-          <v-btn flat color="orange" @click="route(song.title)">View</v-btn>
+          <v-btn flat color="orange" @click="route(song._id)">View Song</v-btn>
         </v-card-actions>
       </v-card>
     </v-flex>
